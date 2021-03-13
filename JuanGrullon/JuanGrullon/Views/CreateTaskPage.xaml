@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JuanGrullon.Views.CreateTaskPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".20*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="AGREGAR TAREA" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Center" FontAttributes="Bold" TextColor="Black" CharacterSpacing="1.5"  FontSize="18" VerticalOptions="CenterAndExpand"  FontFamily="Monserrat"></Label>
+
+
+                <!-- <ImageButton Padding="8" Source="{ local:ImageResource UIDelivery.Resources.Images.Atras.png}" HeightRequest="50" 
+                        HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"
+                        BackgroundColor="Transparent" Command="{Binding RegresarCommand}" Grid.Column="0" Grid.Row="0"/>-->
+            </Grid>
+            <ScrollView Grid.Row="1" Grid.RowSpan="2">
+                <StackLayout>
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,20">
+                            <Entry Placeholder="NOMBRE DE USUARIO" PlaceholderColor="Black" Margin="20,0" HeightRequest="40" WidthRequest="300" FontSize="16" Text="{Binding UserName}" FontFamily="Monserrat"  ></Entry>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout >
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,20">
+                            <Entry Placeholder="TITULO" PlaceholderColor="Black" Margin="20,0" HeightRequest="40" WidthRequest="300" FontSize="16" Text="{Binding Title}" FontFamily="Monserrat"  ></Entry>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,20">
+                            <Entry Placeholder="DESCRIPCION" PlaceholderColor="Black" Margin="20,0" HeightRequest="40" WidthRequest="300" FontSize="16" Text="{Binding Description}" FontFamily="Monserrat"  ></Entry>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,20">
+                            <Button  Margin="20,0" BackgroundColor="Navy" TextColor="White" HeightRequest="60" WidthRequest="200" FontSize="16" Text="AGREGAR" FontFamily="Monserrat" Command="{Binding CreateCommand}" ></Button>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <ActivityIndicator IsRunning="{Binding Loading}" IsVisible="{Binding Loading}" Color="#212121" 
+                      Grid.RowSpan="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

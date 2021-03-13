@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:converters="clr-namespace:JuanGrullon.Data"
+             x:Class="JuanGrullon.Views.TasksPage"
+             x:Name="PageName">
+    <ContentPage.Resources>
+        <converters:BooleanConverter x:Key="bc" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Image Margin="0,5,0,0" Source="TaskLogo.png" HorizontalOptions="Center" WidthRequest="70"></Image>
+                <Label Text="TASK APP"
+                       FontAttributes="Bold"
+                       FontSize="20"
+                       TextColor="Blue"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+             <!--   <Label Text="APP"
+                       FontSize="20"
+                       Margin="0"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />-->
+            </StackLayout>
+            <StackLayout IsVisible="{Binding AnyTask, Converter={StaticResource bc}}" HorizontalOptions="CenterAndExpand">
+                <Label Text="Aun no has creado ninguna tarea! Crea tu primera Tarea!" FontSize="15" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding AnyTask}">
+                <Label Text="Selecciona una tarea para completarla o eliminarla!" FontSize="15" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+                <Label Text="Las Tareas Completas tienen un borde azul" FontSize="12" FontAttributes="Bold" TextColor="Navy" HorizontalTextAlignment="Center"></Label>
+            <CollectionView  BackgroundColor="White" ItemsSource="{Binding Tareas}" 
+                            ItemsLayout="VerticalList" x:Name="theCollectionView" Margin="20" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame  HasShadow="False"
+                                            Padding="0"
+                                            IsClippedToBounds="True" Margin="0,30" BorderColor="Black">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:Reference PageName}, Path=BindingContext.SelectTaskCommand}" CommandParameter="{Binding .}"  />
+                            </Frame.GestureRecognizers>
+                            <Frame.Triggers>
+                                <DataTrigger TargetType="Frame" Binding="{Binding IsComplete}" Value="true">
+                                    <Setter Property="BackgroundColor" Value="White"/>
+                                    <Setter Property="BorderColor" Value="Blue"></Setter>
+                                </DataTrigger>
+                            </Frame.Triggers>
+                                <StackLayout Margin="10">
+                                    <StackLayout Orientation="Horizontal" BackgroundColor="Navy" HeightRequest="40">
+                                        <Label TextColor="White" FontAttributes="Bold" FontSize="16" Text="{Binding UserName,StringFormat='Creada por: {0}'}"></Label>
+                                        <Label Margin="10,0,0,0" TextColor="White" FontAttributes="Bold" FontSize="16" Text="{Binding Title,StringFormat='Titulo: {0}'}"></Label>
+                                    </StackLayout>
+                                    <Label TextColor="Black" FontAttributes="Bold" FontSize="16" Text="{Binding Description,StringFormat='Descripcion: {0}'}"></Label>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+                
+            </StackLayout>
+            <Button Text="Agregar Tarea" BackgroundColor="Navy" TextColor="White" HeightRequest="60" WidthRequest="80" Command="{Binding CreateCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

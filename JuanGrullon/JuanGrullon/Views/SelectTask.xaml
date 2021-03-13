@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JuanGrullon.Views.SelectTask">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="Transparent" HeightRequest="300" HorizontalOptions="Fill" VerticalOptions="Center" x:Name="AbsoluteLayout" >
+            <Frame AbsoluteLayout.LayoutBounds="0.5,0.5,0.85,0.8" AbsoluteLayout.LayoutFlags="All"  x:Name="TheFrame" HorizontalOptions="Fill" IsClippedToBounds="True" BackgroundColor="White" 
+                VerticalOptions="Center"  Padding="9">
+                <StackLayout>
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal" BackgroundColor="Navy" HeightRequest="40" VerticalOptions="CenterAndExpand">
+                            <Label TextColor="White" FontAttributes="Bold" FontSize="16" Text="{Binding Tarea.UserName,StringFormat='Creada por: {0}'}"></Label>
+                            <Label Margin="10,0,0,0" TextColor="White" FontAttributes="Bold" FontSize="16" Text="{Binding Tarea.Title,StringFormat='Titulo: {0}'}"></Label>
+                        </StackLayout>
+                        <Label TextColor="Black" FontAttributes="Bold" FontSize="16" Text="{Binding Tarea.Description,StringFormat='Descripcion: {0}'}"></Label>
+                    </StackLayout>
+                    <Button Margin="0,20,0,0" Text="Eliminar" BackgroundColor="Red" Command="{Binding DeleteTaskCommand}"></Button>
+                    <Button Margin="0,20" BackgroundColor="Navy" TextColor="White" Text="Marcar como completada" Command="{Binding UpdateTaskCommand}"></Button>
+                </StackLayout>
+            </Frame>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</pages:PopupPage>
