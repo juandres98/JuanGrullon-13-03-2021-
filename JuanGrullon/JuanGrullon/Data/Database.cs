@@ -16,10 +16,7 @@ namespace JuanGrullon.Data
         {
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Tarea>().Wait();
-           /* _database.CreateTableAsync<ActiveOrder>().Wait();
-            _database.CreateTableAsync<ActiveRoute>().Wait();
-            _database.CreateTableAsync<PossibleOrder>().Wait();
-            _dbPath = dbPath;*/
+            _dbPath = dbPath;
         }
 
         public async Task<List<Tarea>> GetTareas()
