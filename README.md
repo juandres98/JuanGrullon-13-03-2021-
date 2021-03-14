@@ -1,6 +1,6 @@
 # JuanGrullon-13-03-2021-
 
-El presente proyecto fue realizado utilizando Xamarin Forms en su versión 5.0.0.2012 para el sistema operativo Android en la Plataforma Android 11.0 (API 30).
+El presente proyecto fue realizado utilizando Xamarin Forms en su versión 5.0.0.2012 para el sistema operativo Android en la Plataforma de Destino Android 11.0 (API 30).
 Es necesario tener instalada esta versión de Xamarin Forms y el SDK de Android correspondiente al API 30 para ejecutar la aplicación de forma correcta.
 
 El propósito de la Aplicación es mostrar una Lista de Tareas. La aplicación permite agregar nuevas Tareas, eliminarlas y marcarlas como completadas,
